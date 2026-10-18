@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iris Flower Predictor</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+<header>
+<h1>Iris Flower Predictor</h1>
+<p>Adjust flower measurements to run live classification and view probability scores.</p>
+</header>
+
+<main class="grid">
+<!-- Input Controls -->
+<section class="card">
+<h2>Measurements (cm)</h2>
+
+<!-- Sample Presets -->
+<div class="presets">
+<span>Presets:</span>
+<button type="button" class="btn-sm" onclick="applyPreset('setosa')">Setosa</button>
+<button type="button" class="btn-sm" onclick="applyPreset('versicolor')">Versicolor</button>
+<button type="button" class="btn-sm" onclick="applyPreset('virginica')">Virginica</button>
+</div>
+
+<form id="irisForm">
+<div class="input-group">
+<div class="label-row">
+<label for="sepalLength">Sepal Length</label>
+<span id="sepalLengthVal">5.1 cm</span>
+</div>
+<input type="range" id="sepalLength" min="4.0" max="8.0" step="0.1" value="5.1">
+</div>
+
+<div class="input-group">
+<div class="label-row">
+<label for="sepalWidth">Sepal Width</label>
+<span id="sepalWidthVal">3.5 cm</span>
+</div>
+<input type="range" id="sepalWidth" min="2.0" max="4.5" step="0.1" value="3.5">
+</div>
+
+<div class="input-group">
+<div class="label-row">
+<label for="petalLength">Petal Length</label>
+<span id="petalLengthVal">1.4 cm</span>
+</div>
+<input type="range" id="petalLength" min="1.0" max="7.0" step="0.1" value="1.4">
+</div>
+
+<div class="input-group">
+<div class="label-row">
+<label for="petalWidth">Petal Width</label>
+<span id="petalWidthVal">0.2 cm</span>
+</div>
+<input type="range" id="petalWidth" min="0.1" max="2.5" step="0.1" value="0.2">
+</div>
+
+<button type="submit" class="btn-primary">Predict Species</button>
+</form>
+</section>
+
+<!-- Results Display -->
+<section class="card result-card">
+<span class="badge" id="confidenceBadge">0.0% Confidence</span>
+<h2 id="speciesName">Iris Setosa</h2>
+
+<div class="img-box">
+<img id="speciesImg" src="images/setosa.jpg" alt="Iris Setosa">
+
+</div>
+
+<p id="speciesDesc">Loading description...</p>
+
+<!-- Probability Breakdown -->
+<div class="prob-section">
+<h3>Probability Distribution</h3>
+
+<div class="prob-row" id="row-setosa">
+<div class="prob-label">
+<span>Iris Setosa</span>
+<span id="prob-setosa">0%</span>
+</div>
+<div class="track"><div class="fill" id="fill-setosa"></div></div>
+</div>
+
+<div class="prob-row" id="row-versicolor">
+<div class="prob-label">
+<span>Iris Versicolor</span>
+<span id="prob-versicolor">0%</span>
+</div>
+<div class="track"><div class="fill" id="fill-versicolor"></div></div>
+</div>
+
+<div class="prob-row" id="row-virginica">
+<div class="prob-label">
+<span>Iris Virginica</span>
+<span id="prob-virginica">0%</span>
+</div>
+<div class="track"><div class="fill" id="fill-virginica"></div></div>
+</div>
+</div>
+</section>
+</main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
